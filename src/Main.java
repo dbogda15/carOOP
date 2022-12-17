@@ -12,7 +12,7 @@ public class Main {
         car2.setColor("голубой");
         car3.setTransmission("automatic transmission");
         car4.setEngineVolume(3.01);
-        car5.setRegistrationNumber("A111AAARUS102");
+        car5.setRegistrationNumber("A101AAARUS102");
 
         System.out.println(car1);
         System.out.println(car2);

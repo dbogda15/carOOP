@@ -68,7 +68,7 @@ public class Car {
         }
 
         if (Objects.isNull(registrationNumber) || registrationNumber.isBlank() || registrationNumber.length() <= 12) {
-            this.registrationNumber = "Внимание! Проверьте правильность написания регистрационного номера!!!";
+            this.registrationNumber = "Внимание! Проверьте правильность написания регистрационного номера!";
         } else {
             this.registrationNumber = registrationNumber;
         }
