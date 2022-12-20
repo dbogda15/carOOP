@@ -15,6 +15,47 @@ public class Car {
     private String registrationNumber;
     private final int capacity;
     private final String tiresType;
+    private Key key;
+
+    public static class Key {
+        private String remoteEngineStart;
+        private String keylessAccess;
+
+        public Key (String remoteEngineStart, String keylessAccess) {
+
+            if (Objects.isNull(remoteEngineStart) || remoteEngineStart.isBlank()) {
+                this.remoteEngineStart = "";
+            } else {
+                this.remoteEngineStart = remoteEngineStart;
+            }
+
+            if (Objects.isNull(keylessAccess) || keylessAccess.isBlank()) {
+                this.keylessAccess = "";
+            } else {
+                this.keylessAccess = keylessAccess;
+            }
+        }
+
+        public String getRemoteEngineStart() {
+            return remoteEngineStart;
+        }
+
+        public void setRemoteEngineStart(String remoteEngineStart) {
+            this.remoteEngineStart = remoteEngineStart;
+        }
+
+        public String getKeylessAccess() {
+            return keylessAccess;
+        }
+
+        public void setKeylessAccess(String keylessAccess) {
+            this.keylessAccess = keylessAccess;
+        }
+    }
+
+    public Car (String brand, String model) {
+        this(brand, model, 1.5, "белый", 2000, null, null, null, null, 5);
+    }
 
     public Car(String brand, String model, double engineVolume, String color, int year, String country, String transmission,
                String bodyType, String registrationNumber, int capacity) {
@@ -147,12 +188,28 @@ public class Car {
         return tiresType;
     }
 
+    public Key getKey() {
+        return key;
+    }
+
+    public void setKey(Key key) {
+        this.key = key;
+    }
+
     @Override
     public String toString() {
         return brand + " " + model + ", " + year + " года выпуска, страна сборки: " + country + ", цвет кузова: "
                 + getColor() + ", объём двигателя -  " + getEngineVolume() + " л." + " Необходимо установить следующие шины: " + tiresType + "\n"
                 + "тип кузова: " + bodyType + ", тип трансмиссии: " + getTransmission() + ", кол-во мест: " + capacity + ", регистрационный номер: " + getRegistrationNumber()
                 + "\n______________";
+    }
+
+    public void printKeyFunctions () {
+        if (!Objects.isNull(getKey())) {
+            System.out.println("У машины " + getBrand() + " " + getModel() + " есть возможности: " + getKey().getKeylessAccess() + " " + getKey().getRemoteEngineStart());
+        } else {
+            System.out.println("У машины " + getBrand() + " " + getModel() + " нет данных по функционалу ключа");
+        }
     }
 }
 
